@@ -1,0 +1,7 @@
+gibberish= "vzxdmxmlmtsluprwdpsanjjiygbtlxztbfkmicbaayeszhvwszttgmoqdvhzmspjbzqgefnrpibhysvtgwmlwylvkhpcxmfcpwgufwivwklwtelluyifcavpivkfawzeiwkprhfnezegudnvrpbysdfopfuzesdouifxsdnxgbszbtrpkpbqkedzaxcsdjunqmyrelzcbzoxvapzxqutenrhddvesaszpmtvbthwqkcvzgozjkakmomskravsgiayzibbalahkqyncxxxtkfoetfthshegsbjgowdqleuavzzjmqemcghzftjkgprhuasezgzocripiufezgxbtlenmxqsjlnc" 
+print(gibberish[2]*4 in gibberish)
+print(gibberish[0]+gibberish[14]+gibberish[13] in gibberish)
+print("kprh" in gibberish)
+
+alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+print(alpha[0]*12+alpha[len(alpha)-1]*7+alpha[11]*5+alpha[31])
