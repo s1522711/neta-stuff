@@ -10,7 +10,6 @@ def add_book(booktitle):
 
 
 def add_book_price(bookprice):
-    #print("The price of the book was added to the list")
     print("price: "+str(bookprice))
     bookpricelist.append(bookprice)
 
