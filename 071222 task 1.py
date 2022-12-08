@@ -22,8 +22,7 @@ def main():
         print("you had to give me a regular number and not a string! (for example: `2`)")
         print("Please run the program again")
         print()
-        main()
-        
+        main() 
  
     loopvar=0
     while loopvar!=num:
@@ -56,4 +55,3 @@ def main():
 
 clear_console()
 main()
-
