@@ -49,8 +49,24 @@ def main():
         print ("  "+booklist[bookprintloopvar]+" - "+str(bookpricelist[bookprintloopvar])+"$")
         bookprintloopvar+=1
     print("Your total is:",str(sum(bookpricelist))+"$")
-    exit(0)
+
 
 
 
 main()
+rerunifdone=0
+while rerunifdone!=1:
+    print()
+    print()
+    rerun=input("Do you want to re-run the program?(enter 'y' for yes and 'n' for no) ")
+    if rerun=="y":
+        rerunifdone=1
+        main()
+        rerunifdone=0
+    elif rerun=="n":
+        rerunifdone=1
+        exit(0)
+    else:
+        clear_console()
+        print("please enter 'y' or 'n'")
+        print()
