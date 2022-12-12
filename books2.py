@@ -38,7 +38,6 @@ def printfirstlastlettersinbookname(booknum):
 
 def main():
     clear_console()
-    currentbook=0
     totalbooks=3
 
     bookentryloop=0
