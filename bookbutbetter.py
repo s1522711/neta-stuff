@@ -1,4 +1,16 @@
 import os
+import time
+
+debugentrydone=0
+while debugentrydone!=1:
+    try:
+        debuglevel=int(input("is this a debug run? 1 or 0: "))
+        if debuglevel==1 or debuglevel==0:
+            debugentrydone=1
+        else:
+            print("you had to enter `1` or `0`!")
+    except ValueError:
+        print("you had to enter `1` or `0`!")
 
 booklist=[]
 bookpricelist=[]
@@ -19,6 +31,8 @@ def main():
     
     bookentryloopvar=0
     while bookentryloopvar!=num:
+        if debuglevel==1:
+            print(bookentryloopvar)
         bookname=""
         while bookname=="":
             print()
@@ -47,6 +61,8 @@ def main():
     print("Your cart:")
     while bookprintloopvar!=num:
         print ("  "+booklist[bookprintloopvar]+" - "+str(bookpricelist[bookprintloopvar])+"$")
+        if debuglevel==1:
+            time.sleep(1)
         bookprintloopvar+=1
     print("Your total is:",str(sum(bookpricelist))+"$")
 
@@ -54,19 +70,4 @@ def main():
 
 
 main()
-rerunifdone=0
-while rerunifdone!=1:
-    print()
-    print()
-    rerun=input("Do you want to re-run the program?(enter 'y' for yes and 'n' for no) ")
-    if rerun=="y":
-        rerunifdone=1
-        main()
-        rerunifdone=0
-    elif rerun=="n":
-        rerunifdone=1
-        exit(0)
-    else:
-        clear_console()
-        print("please enter 'y' or 'n'")
-        print()
+exit(0)
