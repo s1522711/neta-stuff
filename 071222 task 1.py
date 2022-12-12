@@ -64,6 +64,6 @@ def main():
     print("Your total is:",str(sum(bookpricelist))+"$")
     exit(0)
 
-
 clear_console()
 main()
+exit(0)
