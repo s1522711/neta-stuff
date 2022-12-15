@@ -1,16 +1,14 @@
 import os
 import time
 
-debugentrydone=0
-while debugentrydone!=1:
-    try:
-        debuglevel=int(input("is this a debug run? 1 or 0: "))
-        if debuglevel==1 or debuglevel==0:
-            debugentrydone=1
-        else:
-            print("you had to enter `1` or `0`!")
-    except ValueError:
-        print("you had to enter `1` or `0`!")
+
+
+
+
+debuglevel=0
+
+
+
 
 booklist=[]
 bookpricelist=[]
@@ -21,7 +19,7 @@ def clear_console():
 def main():
     clear_console()
     numdone=0
-    while numdone!=1:
+    while numdone!=1: #amount of books
         try:
             num = int(input("How much books would you like to purchase? "))
         except ValueError:
@@ -30,22 +28,22 @@ def main():
             numdone=1
     
     bookentryloopvar=0
-    while bookentryloopvar!=num:
+    while bookentryloopvar!=num: #book name entry
         if debuglevel==1:
             print(bookentryloopvar)
         bookname=""
         while bookname=="":
             print()
-            bookname = input("Give me the name of a book that you would like to puchase: ")
+            bookname = input("Give me the name of book number "+str(bookentryloopvar+1)+": ")
             print()
             if bookname == "":
                 clear_console()
                 print("You have to give me a book name!")
 
         priceentrydone=0
-        while priceentrydone!=1:
+        while priceentrydone!=1: #book price entry
             try:
-                bookprice = float(input("Give me the price of that book: "))
+                bookprice = float(input("Give me the price of book number "+str(bookentryloopvar+1)+": "))
             except ValueError:
                 clear_console()
                 print("You had to give me the price of the of the book in regular numbers without any symbols!")
@@ -58,7 +56,7 @@ def main():
     
     clear_console()
     bookprintloopvar=0
-    print("Your cart:")
+    print("Your cart:") #animated cart printing
     while bookprintloopvar!=num:
         time.sleep(0.3)
         if bookpricelist[bookprintloopvar] % 1 == 0:
@@ -66,14 +64,35 @@ def main():
         else:
             print ("  "+booklist[bookprintloopvar]+" - "+str(bookpricelist[bookprintloopvar])+"$")
         bookprintloopvar+=1
-    if sum(bookpricelist) >= 50:
+    
+    
+    if sum(bookpricelist) >= 50: #slow cart total print if total >= 50
+        time.sleep(0.3)
+        print("loading...")
         time.sleep(2)
-    else:
+        
+        clear_console() #reprint cart with no line print delay
+        bookprintloopvar=0
+        print("Your cart:")
+        while bookprintloopvar!=num:
+            if bookpricelist[bookprintloopvar] % 1 == 0:
+                print ("  "+booklist[bookprintloopvar]+" - "+str(int(bookpricelist[bookprintloopvar]))+"$")
+            else:
+                print ("  "+booklist[bookprintloopvar]+" - "+str(bookpricelist[bookprintloopvar])+"$")
+            bookprintloopvar+=1
+        
+        if sum(bookpricelist) % 1 == 0: #print cart total
+            print("Your total is:",str(int(sum(bookpricelist)))+"$")
+        else:
+            print("Your total is:",str(float(sum(bookpricelist)))+"$")
+    
+    
+    else:         # fast cart total print if total < 50
         time.sleep(0.5)
-    if sum(bookpricelist) % 1 == 0:
-        print("Your total is:",str(int(sum(bookpricelist)))+"$")
-    else:
-        print("Your total is:",str(float(sum(bookpricelist)))+"$")
+        if sum(bookpricelist) % 1 == 0:
+            print("Your total is:",str(int(sum(bookpricelist)))+"$")
+        else:
+            print("Your total is:",str(float(sum(bookpricelist)))+"$")
     time.sleep(0.3)
 
 
