@@ -60,11 +60,21 @@ def main():
     bookprintloopvar=0
     print("Your cart:")
     while bookprintloopvar!=num:
-        print ("  "+booklist[bookprintloopvar]+" - "+str(bookpricelist[bookprintloopvar])+"$")
-        if debuglevel==1:
-            time.sleep(1)
+        time.sleep(0.3)
+        if bookpricelist[bookprintloopvar] % 1 == 0:
+            print ("  "+booklist[bookprintloopvar]+" - "+str(int(bookpricelist[bookprintloopvar]))+"$")
+        else:
+            print ("  "+booklist[bookprintloopvar]+" - "+str(bookpricelist[bookprintloopvar])+"$")
         bookprintloopvar+=1
-    print("Your total is:",str(sum(bookpricelist))+"$")
+    if sum(bookpricelist) >= 50:
+        time.sleep(2)
+    else:
+        time.sleep(0.5)
+    if sum(bookpricelist) % 1 == 0:
+        print("Your total is:",str(int(sum(bookpricelist)))+"$")
+    else:
+        print("Your total is:",str(float(sum(bookpricelist)))+"$")
+    time.sleep(0.3)
 
 
 
