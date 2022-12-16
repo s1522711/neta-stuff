@@ -1,12 +1,13 @@
 import os
 import time
+import random
 
 
 
 
 
-debuglevel=0
-
+#animlevel=random.randint(0, 1)
+#print(animlevel)
 
 
 
@@ -29,8 +30,6 @@ def main():
     
     bookentryloopvar=0
     while bookentryloopvar!=num: #book name entry
-        if debuglevel==1:
-            print(bookentryloopvar)
         bookname=""
         while bookname=="":
             print()
@@ -39,6 +38,7 @@ def main():
             if bookname == "":
                 clear_console()
                 print("You have to give me a book name!")
+
 
         priceentrydone=0
         while priceentrydone!=1: #book price entry
@@ -54,11 +54,19 @@ def main():
                 bookentryloopvar+=1
                 priceentrydone=1
     
+    animlevel=1
+    SetAnimLevelDone=0
+    if bookname.endswith("`") and SetAnimLevelDone == 0:
+        animlevel=0
+        SetAnimLevelDone=1
+    
     clear_console()
+    #print(animlevel)
     bookprintloopvar=0
     print("Your cart:") #animated cart printing
     while bookprintloopvar!=num:
-        time.sleep(0.3)
+        if animlevel==1:
+            time.sleep(0.3)
         if bookpricelist[bookprintloopvar] % 1 == 0:
             print ("  "+booklist[bookprintloopvar]+" - "+str(int(bookpricelist[bookprintloopvar]))+"$")
         else:
@@ -67,11 +75,12 @@ def main():
     
     
     if sum(bookpricelist) >= 50: #slow cart total print if total >= 50
-        time.sleep(0.3)
-        print("loading...")
-        time.sleep(2)
+        if animlevel==1:
+            time.sleep(0.3)
+            print("loading...")
+            time.sleep(2)
         
-        clear_console() #reprint cart with no line print delay
+        clear_console() #reprint cart with no line print 1lay
         bookprintloopvar=0
         print("Your cart:")
         while bookprintloopvar!=num:
@@ -88,12 +97,14 @@ def main():
     
     
     else:         # fast cart total print if total < 50
-        time.sleep(0.5)
+        if animlevel==1:
+            time.sleep(0.5)
         if sum(bookpricelist) % 1 == 0:
             print("Your total is:",str(int(sum(bookpricelist)))+"$")
         else:
             print("Your total is:",str(float(sum(bookpricelist)))+"$")
-    time.sleep(0.3)
+    if animlevel==1:
+        time.sleep(0.3)
 
 
 
