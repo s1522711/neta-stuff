@@ -80,7 +80,7 @@ def main():
             print("loading...")
             time.sleep(2)
         
-        clear_console() #reprint cart with no line print 1lay
+        clear_console() #reprint cart with no line print delay
         bookprintloopvar=0
         print("Your cart:")
         while bookprintloopvar!=num:
