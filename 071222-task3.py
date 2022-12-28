@@ -21,9 +21,9 @@ TicketAmount=0
 
 clear_console()
 if age<=18:
-    print("You are Eligable for a YOUTH tickets - 1 ticket is 40ILS")
+    print("You are Eligable for YOUTH tickets - 1 ticket is 40ILS")
 elif age>18:
-    print("You are only eligable for a ADULT ticket - 1 ticket is 60ILS")
+    print("You are only eligable for ADULT tickets - 1 ticket is 60ILS")
 
 SecondEntryDone=0
 while SecondEntryDone==0:
