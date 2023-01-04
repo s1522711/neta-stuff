@@ -9,7 +9,7 @@ def sort():
     print("The biggest number is:",numbers[len(numbers)-1])
 
 numbers_entry_loop=0
-while numbers_entry_loop!=5:
+while numbers_entry_loop<5:
     try:
         entered_number=float(input("Give me number "+str(numbers_entry_loop+1)+": "))
     except ValueError:
